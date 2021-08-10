@@ -68,7 +68,7 @@ class Motor:
         GPIO.output(self.pin2, GPIO.LOW)
 
 if __name__ == "__main__":
-    left_motor = Motor(8, 7)
+    left_motor = Motor(38, 22)
     right_motor = Motor(11, 12)
 
     left_motor.turn_clockwise()

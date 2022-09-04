@@ -1,4 +1,4 @@
-'''
+"""
 Test 60 rpm DC motors x2
 
 h/w connections:
@@ -10,7 +10,7 @@ Pi       H-Bridge
 
 note:
 H-Bridge is powered separately with battery pack
-'''
+"""
 
 import time
 import RPi.GPIO as GPIO
@@ -66,6 +66,7 @@ class Motor:
 
         GPIO.output(self.pin1, GPIO.LOW)
         GPIO.output(self.pin2, GPIO.LOW)
+
 
 if __name__ == "__main__":
     left_motor = Motor(38, 22)

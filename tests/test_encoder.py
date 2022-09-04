@@ -1,4 +1,4 @@
-'''
+"""
 Test optical encoder sensor
 
 h/w connections:
@@ -9,19 +9,19 @@ GND  --- Gnd
 
 note:
 D0 on encoder is not connected to Pi
-'''
+"""
 
 from time import sleep
 import RPi.GPIO as GPIO
- 
-GPIO.setmode(GPIO.BCM)           
 
-INPUT_PIN = 3           
-GPIO.setup(INPUT_PIN, GPIO.IN)           
+GPIO.setmode(GPIO.BCM)
 
-while True: 
-    if (GPIO.input(INPUT_PIN) == True):
-            print('0')
+INPUT_PIN = 3
+GPIO.setup(INPUT_PIN, GPIO.IN)
+
+while True:
+    if GPIO.input(INPUT_PIN) is True:
+        print("0")
     else:
-            print('3.3')
+        print("3.3")
     sleep(1)

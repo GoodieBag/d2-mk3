@@ -1,13 +1,12 @@
 import pygame
 import time
-import sys
 import pigpio
 
 from test_dc_motor import Motor
 
 pi = pigpio.pi()
 
-pygame.init()           # Loads pygame engine
+pygame.init()  # Loads pygame engine
 pygame.joystick.init()  # main joystick device system
 
 MAX_RIGHT = 800
@@ -17,32 +16,32 @@ value = CENTER
 value_y = CENTER
 
 try:
-    j = pygame.joystick.Joystick(0) # create a joystick instance
-    j.init() # init instance
-    print ("Enabled joystick: {0}".format(j.get_name()))
+    j = pygame.joystick.Joystick(0)  # create a joystick instance
+    j.init()  # init instance
+    print("Enabled joystick: {0}".format(j.get_name()))
     left_motor = Motor(38, 22)
     right_motor = Motor(11, 12)
 
     while 1:
         for e in pygame.event.get():
             if e.type == pygame.JOYAXISMOTION:  # Joystick
-                print(j.get_axis(0),j.get_axis(1))
-                if j.get_axis(0) >= 0.5 :
-                    print ("right has been pressed")  # Right
+                print(j.get_axis(0), j.get_axis(1))
+                if j.get_axis(0) >= 0.5:
+                    print("right has been pressed")  # Right
                     if value >= MAX_RIGHT:
                         value -= 10
                     else:
                         value = MAX_RIGHT
                     pi.set_servo_pulsewidth(6, value)
                 if j.get_axis(0) <= -1:
-                    print ("left has been pressed")   # Left
+                    print("left has been pressed")  # Left
                     if value <= MAX_LEFT:
                         value += 20
                     else:
                         value = MAX_LEFT
                     pi.set_servo_pulsewidth(6, value)
                 if j.get_axis(1) >= 0.5:
-                    print ("Down has been pressed")  # Down
+                    print("Down has been pressed")  # Down
                     if value_y >= MAX_RIGHT:
                         value_y -= 50
                     else:
@@ -55,23 +54,23 @@ try:
                     else:
                         value_y = MAX_LEFT
                     pi.set_servo_pulsewidth(5, value_y)
-                #motor
-                if j.get_axis(2) >= 0.5 :
-                    print ("right has been pressed")  # Right                    
+                # motor
+                if j.get_axis(2) >= 0.5:
+                    print("right has been pressed")  # Right
                     left_motor.turn_clockwise()
                     right_motor.turn_anticlockwise()
                     time.sleep(0.2)
                     left_motor.stop()
                     right_motor.stop()
                 if j.get_axis(2) <= -1:
-                    print ("left has been pressed")   # Left
+                    print("left has been pressed")  # Left
                     left_motor.turn_anticlockwise()
                     right_motor.turn_clockwise()
                     time.sleep(0.2)
                     left_motor.stop()
                     right_motor.stop()
                 if j.get_axis(3) >= 0.5:
-                    print ("Down has been pressed")  # Down
+                    print("Down has been pressed")  # Down
                     left_motor.turn_anticlockwise()
                     right_motor.turn_anticlockwise()
                     time.sleep(0.2)
@@ -87,4 +86,4 @@ try:
             else:
                 pass
 except pygame.error:
-	print ("no joystick found.")
+    print("no joystick found.")

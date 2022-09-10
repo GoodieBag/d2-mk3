@@ -3,7 +3,7 @@ setup-venv:
 	python -m venv venv
 	source venv/bin/activate
 
-setup-venv-activate:
+venv-activate:
 	source venv/bin/activate
 
 setup-dev: requirements-dev.txt

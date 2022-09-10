@@ -1,3 +1,11 @@
+setup-venv:
+	pip install virtualenv
+	python -m venv venv
+	source botenv/bin/activate
+
+setup-venv-activate:
+	source venv/bin/activate
+
 setup-dev: requirements-dev.txt
 	pip install -r requirements-dev.txt
 

@@ -14,7 +14,7 @@ setup: requirements.txt
 
 lint:
 	black . --line-length 79
-	flake8
+	flake8 --ignore=E203
 
 clean:
 	rm -rf __pycache__

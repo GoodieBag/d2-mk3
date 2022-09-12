@@ -8,6 +8,7 @@ venv-activate:
 
 setup-dev: requirements-dev.txt
 	pip install -r requirements-dev.txt
+	pre-commit install
 
 setup: requirements.txt
 	pip install -r requirements.txt

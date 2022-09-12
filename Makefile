@@ -1,7 +1,6 @@
 setup-venv:
 	pip install virtualenv
 	python -m venv venv
-	source venv/bin/activate
 
 venv-activate:
 	source venv/bin/activate

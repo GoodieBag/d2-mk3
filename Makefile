@@ -16,5 +16,8 @@ lint:
 	black . --line-length 79
 	flake8 --ignore=E203
 
+test:
+	pytest -vv
+
 clean:
 	rm -rf __pycache__

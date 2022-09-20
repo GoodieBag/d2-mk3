@@ -1,7 +1,7 @@
 import eventlet
 import socketio
 
-sio = socketio.Server(cors_allowed_origins='*')
+sio = socketio.Server(cors_allowed_origins='https://diggibot.surge.sh')
 app = socketio.WSGIApp(sio)
 
 @sio.event

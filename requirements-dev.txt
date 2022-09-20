@@ -1,4 +1,6 @@
 black
+eventlet
 flake8
 pre-commit
 pytest
+python-socketio

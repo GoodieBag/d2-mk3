@@ -1,4 +1,4 @@
-"""Class file for motor control
+"""Class for motor control
 
 Bot uses two 90 rpm DC motors
 
@@ -39,7 +39,6 @@ class Motor:
 
     def __init__(self, pin1=DEFAULT_PIN1, pin2=DEFAULT_PIN2):
         """Function to init two pins used by the motor as output"""
-
         self.pin1 = pin1
         self.pin2 = pin2
 
@@ -50,18 +49,15 @@ class Motor:
 
     def turn_clockwise(self):
         """Function to move motor in clockwise direction"""
-
         GPIO.output(self.pin1, GPIO.LOW)
         GPIO.output(self.pin2, GPIO.HIGH)
 
     def turn_anticlockwise(self):
         """Function to move motor in anticlockwise direction"""
-
         GPIO.output(self.pin1, GPIO.HIGH)
         GPIO.output(self.pin2, GPIO.LOW)
 
     def stop(self):
         """Function to stop motor rotation"""
-
         GPIO.output(self.pin1, GPIO.LOW)
         GPIO.output(self.pin2, GPIO.LOW)

@@ -12,11 +12,6 @@ Pi       H-Bridge motor driver
 
 import RPi.GPIO as GPIO
 
-GPIO.setwarnings(False)  # Ignore GPIO warnings
-
-DEFAULT_PIN1 = 5
-DEFAULT_PIN2 = 6
-
 
 class Motor:
     """
@@ -37,12 +32,13 @@ class Motor:
         stops the motor rotation
     """
 
-    def __init__(self, pin1=DEFAULT_PIN1, pin2=DEFAULT_PIN2):
-        """Function to init two pins used by the motor as output"""
+    def __init__(self, pin1, pin2):
+        """Function to init pins used by the motor as output"""
         self.pin1 = pin1
         self.pin2 = pin2
 
         GPIO.setmode(GPIO.BCM)  # use BCM numbering for GPIO
+        GPIO.setwarnings(False)  # Ignore GPIO warnings
 
         GPIO.setup(self.pin1, GPIO.OUT)
         GPIO.setup(self.pin2, GPIO.OUT)
@@ -61,3 +57,4 @@ class Motor:
         """Function to stop motor rotation"""
         GPIO.output(self.pin1, GPIO.LOW)
         GPIO.output(self.pin2, GPIO.LOW)
+        GPIO.cleanup()

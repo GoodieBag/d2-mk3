@@ -57,4 +57,3 @@ class Motor:
         """Function to stop motor rotation"""
         GPIO.output(self.pin1, GPIO.LOW)
         GPIO.output(self.pin2, GPIO.LOW)
-        GPIO.cleanup()

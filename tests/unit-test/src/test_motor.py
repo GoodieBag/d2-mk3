@@ -1,4 +1,3 @@
-import os
 from src.utils import setup_env
 import src.constants as const
 
@@ -10,7 +9,6 @@ from src.lib.motor import Motor  # noqa: E402
 
 def test_init():
     """Test motor init"""
-    print(os.getenv("ENV"))
     motor = Motor(pin1=1, pin2=2)
     assert motor.pin1 == 1
     assert motor.pin2 == 2

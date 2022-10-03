@@ -3,7 +3,7 @@ import os
 
 def setup_env():
     # replace RPi.GPIO with fake GPIO if environment is DEV
-    if os.getenv("ENV") == "DEV":
+    if os.getenv("ENV") != "PROD":
         print("Running in dev mode")
 
         # Replace libraries by fake ones

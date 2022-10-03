@@ -6,25 +6,7 @@ from lib.motor import Motor
 
 
 class Bot:
-    """
-    A class used to represent a bot
-    Attributes
-    ----------
-    motor_L : Motor
-        motor object for left motor
-    motor_R : Motor
-        motor object for right motor
-    Methods
-    -------
-    move_forwards()
-        moves the bot in forward direction
-    move_backwards()
-        moves the bot in backward direction
-    turn_left()
-        turns the bot in left direction
-    turn_right()
-        turns the bot in right direction
-    """
+    """A class that represents a 2 wheeled bot"""
 
     def __init__(self):
         """Function to initialize two motor as output"""

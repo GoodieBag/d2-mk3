@@ -14,26 +14,15 @@ import RPi.GPIO as GPIO
 
 
 class Motor:
-    """
-    A class used to represent a DC motor
-    Attributes
-    ----------
-    pin1 : int
-        valid RPi GPIO pin number (DEFAULT value - 5)
-    pin2 : int
-        valid RPi GPIO pin number (DEFAULT value - 6)
-    Methods
-    -------
-    turn_clockwise()
-        rotates the motor in clockwise direction
-    turn_anticlockwise()
-        rotates the motor in anticlockwise direction
-    stop()
-        stops the motor rotation
-    """
+    """A class that represents a DC Motor"""
 
     def __init__(self, pin1, pin2):
-        """Function to init pins used by the motor as output"""
+        """Function to initialize Motor object
+
+        Args:
+            pin1 (int): Pin number to which motor is attached
+            pin2 (int): Pin number to which motor is attached
+        """
         self.pin1 = pin1
         self.pin2 = pin2
 

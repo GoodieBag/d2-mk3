@@ -40,13 +40,15 @@ def get_stream_handler(level, format_str=default_log_format):
 
 def setup_logger(
     module_name,
+    file_name=None,
     logger_level=logging.DEBUG,
     file_handler_level=logging.WARNING,
     stream_handler_level=logging.DEBUG,
     propagate=False,
 ):
     logger = get_logger(module_name, logger_level)
-    logger.addHandler(get_file_handler(module_name, file_handler_level))
+    if file_name:
+        logger.addHandler(get_file_handler(module_name, file_handler_level))
     logger.addHandler(get_stream_handler(level=stream_handler_level))
     logger.propagate = propagate
     return logger

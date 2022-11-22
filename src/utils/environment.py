@@ -1,10 +1,12 @@
 import os
+import logging
 
 
 def setup_env():
     # replace RPi.GPIO with fake GPIO if environment is DEV
     if os.getenv("ENV") != "PROD":
-        print("Running in dev mode")
+        logger = logging.getLogger("hardware")
+        logger.debug("Running in dev mode")
 
         # Replace libraries by fake ones
         import sys
